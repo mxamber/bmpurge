@@ -1,0 +1,9 @@
+*.csproj*
+*.sln
+bin/*
+obj/*
+*.config
+*.md
+LICENSE
+*.xcf
+*.png
