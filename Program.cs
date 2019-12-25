@@ -9,7 +9,8 @@ namespace bmpurge
 		BEFORE,
 		AFTER,
 		BETWEEN,
-		NONE
+		NONE,
+		EXCEPT
 	}
 	
 	class Program
@@ -111,7 +112,17 @@ namespace bmpurge
 				}
 				
 				dates[1] = ToUnixTime(new DateTime(afterT.Ticks, DateTimeKind.Local));
-			}			
+			}
+			
+			
+			if(before && after && dates[0] < dates[1]) {
+				mode = Modes.EXCEPT;
+			}
+			
+			ConsoleColor old = Console.ForegroundColor;
+			Console.ForegroundColor = ConsoleColor.Yellow;
+			Console.WriteLine("Mode: {0}", mode);
+			Console.ForegroundColor = old;
 			
 			// if document isn't a netscape bookmarks file, quit
 			String file_content = File.ReadAllText(path, Encoding.UTF8);
@@ -154,7 +165,14 @@ namespace bmpurge
 							Console.WriteLine("REMOVED: {0}", m.Groups["title"].Value);
 						}
 						break;
+					case Modes.EXCEPT:
+						if(date < dates[0] || date > dates[1]) {
+							result = result.Replace(m.Value, "");
+							Console.WriteLine("REMOVED: {0}", m.Groups["title"].Value);
+						}
+						break;
 					case Modes.NONE:
+					default:
 						Console.WriteLine("An unknown error occured.");
 						break;
 				}
