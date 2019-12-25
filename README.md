@@ -14,8 +14,8 @@
 
 ## Examples
 
-`bmpurge path/to/file -before "2018/01/01 12:00"` will erase all bookmarks created before 01 Jan 2018, 12:00.
+`bmpurge path/to/file -before "01 Jan 2018 12:00"` will erase all bookmarks created before 01 Jan 2018, 12:00.
 
-`bmpurge path/to/file -after "2018/01/01 12:00"` will erase all bookmarks created after 01 Jan 2018, 12:00.
+`bmpurge path/to/file -after "01 Jan 2018 12:00"` will erase all bookmarks created after 01 Jan 2018, 12:00.
 
-`bmpurge path/to/file -before "2018/06/31 22:00" -after "2018/01/01 12:00"` will erase all bookmarks created between 01 Jan 2018, 12:00 and 31 June 2018, 22:00.
+`bmpurge path/to/file -before "31 June 2018 22:00" -after "01 Jan 2018 12:00"` will erase all bookmarks created between 01 Jan 2018, 12:00 and 31 June 2018, 22:00.
