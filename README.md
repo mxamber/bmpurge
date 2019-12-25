@@ -8,7 +8,9 @@
 
 **After:** all bookmarks after this date will be erased
 
-**File:** Path to the bookmarks HTML file. Will be overwritten without warning.
+**File:** Path to the bookmarks HTML file.
+
+**File will be overwritten without warning. Always keep a backup.**
 
 ## Examples
 
